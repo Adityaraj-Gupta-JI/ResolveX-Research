@@ -1,20 +1,33 @@
 name: Docs checks
+
 on:
   push:
     branches: [main]
   pull_request:
+
 permissions:
   contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Check placeholders and whitespace
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check unresolved author placeholders
         shell: bash
         run: |
-          git diff --check
-          if grep -R -nE 'REPLACE_WITH_|\[COPYRIGHT HOLDER\]' LICENSE CITATION.cff; then
-            echo "Author placeholders must be replaced before publishing."
+          if grep -nE \
+            'REPLACE_WITH_|\[COPYRIGHT HOLDER\]' \
+            LICENSE CITATION.cff; then
+            echo "Unresolved author metadata detected."
             exit 1
           fi
+
+      - name: Check committed whitespace errors
+        shell: bash
+        run: |
+          git show --format= --check HEAD

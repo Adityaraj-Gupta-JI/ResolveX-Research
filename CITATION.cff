@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you use ResolveX in academic work, please cite the repository; replace placeholder author metadata before public release."
+message: "If you use ResolveX in academic work, please cite the repository."
 title: "ResolveX: Proof-Guided Analysis of Correspondence Problems and Program Termination"
 type: software
 authors:
-  - family-names: "REPLACE_WITH_FAMILY_NAME"
-    given-names: "REPLACE_WITH_GIVEN_NAME"
+  - family-names: "Gupta"
+    given-names: "Adityaraj"
 abstract: "Research software under development for proof-guided analysis of correspondence problems and program termination."
 keywords:
   - computability theory
@@ -13,4 +13,3 @@ keywords:
   - program termination
   - Rust
 # All rights reserved; see LICENSE. No SPDX open-source license is claimed.
-# TODO: Replace author fields; add repository-code, version, date-released only when known.
