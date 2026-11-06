@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/resolvex-core",
+  "crates/resolvex-pcp",
+  "crates/resolvex-termination",
+  "crates/resolvex-proof",
+  "crates/resolvex-bench",
+  "crates/resolvex-cli",
+]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+license = "LicenseRef-All-Rights-Reserved"

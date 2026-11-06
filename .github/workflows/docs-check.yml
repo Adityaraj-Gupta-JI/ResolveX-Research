@@ -1,0 +1,20 @@
+name: Docs checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check placeholders and whitespace
+        shell: bash
+        run: |
+          git diff --check
+          if grep -R -nE 'REPLACE_WITH_|\[COPYRIGHT HOLDER\]' LICENSE CITATION.cff; then
+            echo "Author placeholders must be replaced before publishing."
+            exit 1
+          fi

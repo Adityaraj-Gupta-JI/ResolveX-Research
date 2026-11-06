@@ -1,0 +1,10 @@
+/target/
+**/.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+*.profraw
+/research/experiments/generated/
+/apps/web/node_modules/
+/apps/web/dist/
